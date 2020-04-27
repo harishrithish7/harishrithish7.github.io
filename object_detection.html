@@ -1,0 +1,237 @@
+<html>
+    <head>
+        <link href="style/object_detection.css" rel="stylesheet" type="text/css" >
+        <title>Object Detection</title>
+    </head>
+    <body>
+            <div>
+                <h2>Varying anchors</h2>
+                <p>Minimum object size - 5000 pixels</p>
+                <table>
+                    <tr>
+                        <th rowspan="2">Anchors</th>
+                        <th rowspan="1" colspan="3">Valid (AP)</th>
+                    </tr>
+                    <tr>
+                        <th>Motorbike</th>
+                        <th>Rider</th>
+                        <th>Mean</th>
+                    </tr>
+                    <tr>
+                        <td>Default (trained on COCO)</td>
+                        <td>78.79</td>
+                        <td>72.82</td>
+                        <td>75.81</td>
+                    </tr>
+                    <tr>
+                        <td>Custom (trained on IDD)</td>
+                        <td>79.96</td>
+                        <td>72.17</td>
+                        <td>76.07</td>
+                    </tr>
+                </table>
+                <h3>Observations</h3>
+                <ol>
+                    <li>No substantial difference while using custom anchors</li>
+                </ol>
+                <h3>To-Do</h3>
+                <ol>
+                    <li>Run on dataset with no constraints</li>
+                </ol>
+            </div>
+        <div>
+            <h2>Varying input size of the image to the model</h2>
+            <p>Minimum object size - 10000 pixels</p>
+            <table>
+                <tr>
+                    <th rowspan="2">Image Size (in pixles)</th>
+                    <th rowspan="1" colspan="3">Train (AP)</th>
+                    <th rowspan="1" colspan="3">Valid (AP)</th>
+                    <th rowspan="2">Inference Time (ms)</th>
+                    <th rowspan="2">Frames/sec</th>
+                </tr>
+                <tr>
+                    <th>Motorbike</th>
+                    <th>Rider</th>
+                    <th>Mean</th>
+                    <th>Motorbike</th>
+                    <th>Rider</th>
+                    <th>Mean</th>
+                </tr>
+                <tr>
+                    <td>416 * 416</td>
+                    <td>81.41</td>
+                    <td>78.19</td>
+                    <td>79.8</td>
+                    <td>78.79</td>
+                    <td>72.82</td>
+                    <td>75.81</td>
+                    <td>37</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td>608 * 608</td>
+                    <td>87.99</td>
+                    <td>84.32</td>
+                    <td>86.15</td>
+                    <td>86.28</td>
+                    <td>77.13</td>
+                    <td>81.71</td>
+                    <td>58</td>
+                    <td>17</td>
+                </tr>
+            </table>
+            <h3>Observations</h3>
+            <ol>
+                <li>MAP</li>
+                <li>Inference Time</li>
+            </ol>
+        </div>
+        <div>
+            <h2>Varying Min. Object Size</h2>
+            <p>Image is compressed to 416 * 416 and fed to the model</p>
+            <table>
+                <tr>
+                    <th rowspan="2">Min. Object Size (in pixles)</th>
+                    <th rowspan="1" colspan="3">Train (AP)</th>
+                    <th rowspan="1" colspan="3">Valid (AP)</th>
+                    <th rowspan="2">Inference Time (ms)</th>
+                    <th rowspan="2">Frames/sec</th>
+                </tr>
+                <tr>
+                    <th>Motorbike</th>
+                    <th>Rider</th>
+                    <th>Mean</th>
+                    <th>Motorbike</th>
+                    <th>Rider</th>
+                    <th>Mean</th>
+                </tr>
+                <tr>
+                    <td>No constraint</td>
+                    <td>54.42</td>
+                    <td>42.17</td>
+                    <td>48.3</td>
+                    <td>43.98</td>
+                    <td>35.67</td>
+                    <td>39.83</td>
+                    <td>39</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>2500</td>
+                    <td>74.8</td>
+                    <td>71.31</td>
+                    <td>73.06</td>
+                    <td>71.54</td>
+                    <td>68.50</td>
+                    <td>70.02</td>
+                    <td>37</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td>3500</td>
+                    <td>54.42</td>
+                    <td>42.17</td>
+                    <td>48.3</td>
+                    <td>43.98</td>
+                    <td>35.67</td>
+                    <td>39.83</td>
+                    <td>39</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>5000</td>
+                    <td>81.41</td>
+                    <td>78.19</td>
+                    <td>79.8</td>
+                    <td>78.79</td>
+                    <td>72.82</td>
+                    <td>75.81</td>
+                    <td>37</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td>10000</td>
+                    <td>79.94</td>
+                    <td>72.36</td>
+                    <td>76.15</td>
+                    <td>77.18</td>
+                    <td>69.35</td>
+                    <td>73.27</td>
+                    <td>47</td>
+                    <td>21</td>
+                </tr>
+                <tr>
+                    <td>15000</td>
+                    <td>87.67</td>
+                    <td>82.65</td>
+                    <td>85.16</td>
+                    <td>86.5</td>
+                    <td>78.52</td>
+                    <td>82.51</td>
+                    <td>38</td>
+                    <td>26</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <h2>Dataset</h2>
+                <tr>
+                    <th>Min. Object size</th>
+                    <th>Number of Images</th>
+                    <th>Number of Objects</th> 
+                </tr>
+                <tr>
+                    <td>No Constraint</td>
+                    <td>7150</td>
+                    <td>60000</td>
+                </tr>
+                <tr>
+                    <td>2500</td>
+                    <td>5480</td>
+                    <td>27976</td>
+                </tr>
+                <tr>
+                    <td>3500</td>
+                    <td>7150</td>
+                    <td>60000</td>
+                </tr>
+                <tr>
+                    <td>5000</td>
+                    <td>4652</td>
+                    <td>19591</td>
+                </tr>
+                <tr>
+                    <td>10000</td>
+                    <td>3750</td>
+                    <td>13000</td>
+                </tr>
+                <tr>
+                    <td>15000</td>
+                    <td>3148</td>
+                    <td>9545</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h2>Observations</h2>
+            <ul>
+                <li>No change in inference time except for outlier for 10000 pixels</li>
+                <li>Optimal result obtained  for 3500 pixels</li>
+                <ul>
+                    <li>Link to reason why > 3000 objects is good</li>
+                </ul>
+                <li></li>
+            </ul>
+        </div>
+        <div>
+            <h2>Loss Graph</h2>
+            <img src="images/loss_5000.png" />
+        </div>
+        <div>
+            <h2>Accuracy</h2>
+            <img src="images/map_5000.png" height="800" width="1000"/>
+        </div>
+    </body>
+</html>
